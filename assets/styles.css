@@ -1847,3 +1847,12 @@ footer{view-transition-name:mt-foot}
 
 /* === szary tekst dociągnięty do czytelności (WCAG 4.5 na wszystkich tłach) === */
 :root{--muted:#61686E;}
+
+/* === Pełna nazwa firmy obok logo (prośba klienta 30.09.2026) === */
+.nav .brand.brand-has-logo{align-items:center;gap:.75rem}
+.brand-txt{display:flex;flex-direction:column;gap:.3rem;font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:.86rem;line-height:1;white-space:nowrap;color:#f5f1ea;text-shadow:0 1px 2px rgba(0,0,0,.55)}
+.brand-txt .bt-2{color:var(--accent-lit)}
+.nav.nav-solid .brand-txt{color:var(--ink);text-shadow:none}
+.nav.nav-solid .brand-txt .bt-2{color:var(--accent-d)}
+@media(max-width:680px){.brand-txt{font-size:.7rem;letter-spacing:.1em;gap:.25rem}}
+@media(min-width:681px) and (max-width:960px){.brand-txt{display:none}}

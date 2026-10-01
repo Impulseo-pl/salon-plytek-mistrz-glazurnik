@@ -1856,3 +1856,158 @@ footer{view-transition-name:mt-foot}
 .nav.nav-solid .brand-txt .bt-2{color:var(--accent-d)}
 @media(max-width:680px){.brand-txt{font-size:.7rem;letter-spacing:.1em;gap:.25rem}}
 @media(min-width:681px) and (max-width:960px){.brand-txt{display:none}}
+
+/* === JEDYNY W OKOLICY DYSTRYBUTOR ARDEX I WEDI (prośba klienta 01.10.2026: „dobrze widoczne") ===
+   Trzy miejsca: pieczęć w hero, osobna ciemna sekcja zaraz pod hero, wyróżnione marki + stopka
+   każdej podstrony. Logotypy = oficjalne pliki producentów (ardex.pl, wedi.net), nie rysowane. */
+
+/* 1) pieczęć w hero: białe pole z dwoma logotypami, czytelne na każdym kadrze */
+.hf-dist{display:inline-flex;align-items:center;gap:.9rem;padding:.5rem 1.15rem .5rem .5rem;
+  background:rgba(255,255,255,.97);border-radius:999px;color:var(--ink);text-decoration:none;text-shadow:none;
+  box-shadow:0 14px 34px -14px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.5);
+  transition:transform .6s cubic-bezier(.16,.84,.44,1),box-shadow .6s cubic-bezier(.16,.84,.44,1)}
+.hf-dist:hover{transform:translateY(-2px);box-shadow:0 20px 40px -14px rgba(0,0,0,.7),0 0 0 1px #fff}
+.hfd-logos{display:flex;align-items:center;gap:.75rem;padding:.3rem .95rem .3rem .75rem;border-right:1px solid var(--line)}
+.hfd-logos img{display:block;height:30px;width:auto}
+.hfd-logos img+img{height:15px}
+.hfd-txt{display:flex;flex-direction:column;gap:.18rem;line-height:1.1}
+.hfd-lab{font-family:var(--font-display);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.16em;color:var(--accent-d)}
+.hfd-main{font-family:var(--font-display);font-weight:700;font-size:1.02rem;letter-spacing:-.005em;color:var(--ink);white-space:nowrap}
+@media(max-width:560px){
+  .hf-dist{border-radius:14px;padding:.45rem .8rem .45rem .45rem;gap:.6rem}
+  .hfd-logos{padding:.2rem .6rem .2rem .45rem;gap:.5rem}
+  .hfd-logos img{height:24px}.hfd-logos img+img{height:12px}
+  .hfd-main{font-size:.9rem}.hfd-lab{font-size:.6rem;letter-spacing:.12em}
+}
+
+/* 2) pasek obietnic: punkt o dystrybucji w kolorze akcentu */
+.fp-row li.fp-hot{color:var(--accent-d)}
+
+/* 3) sekcja dystrybutora: ciemne tło z siatką „fug" (motyw płytek) */
+.dystrybutor{position:relative;isolation:isolate;overflow:hidden;background:var(--dark);color:#fff;
+  padding-block:clamp(4.5rem,9vw,7.5rem)}
+.dystrybutor::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:76px 76px;
+  -webkit-mask-image:radial-gradient(ellipse 80% 70% at 85% 0%,#000 0%,transparent 75%);
+          mask-image:radial-gradient(ellipse 80% 70% at 85% 0%,#000 0%,transparent 75%)}
+.dystrybutor::after{content:"";position:absolute;z-index:-1;right:-12%;top:-30%;width:60vw;height:60vw;max-width:820px;max-height:820px;
+  border-radius:50%;background:radial-gradient(circle,rgba(56,116,169,.28),transparent 65%);pointer-events:none}
+.dys-head{max-width:48rem;margin-bottom:clamp(2.4rem,4.5vw,3.6rem)}
+.dystrybutor .eyebrow{color:#9DC0E0}
+.dystrybutor .eyebrow::before{background:#9DC0E0}
+.dys-head h2{color:#fff;font-size:var(--text-h2);margin:var(--space-4) 0 var(--space-5);text-wrap:balance}
+.dys-head h2 em{font-style:normal;color:#9DC0E0}
+.dys-head p{color:rgba(255,255,255,.8);font-size:var(--text-lg);line-height:1.6;max-width:44rem}
+.dys-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(1rem,2.4vw,1.8rem)}
+.dys-card{display:flex;flex-direction:column;background:#fff;color:var(--ink);border-radius:var(--r-lg);overflow:hidden;
+  box-shadow:0 34px 70px -34px rgba(0,0,0,.75)}
+.dys-photo{position:relative;aspect-ratio:16/9;overflow:hidden;background:#0e141b}
+.dys-photo img{width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform var(--img-dur) var(--img-ease),filter var(--img-dur) var(--img-ease)}
+.dys-card:first-child .dys-photo img{object-position:50% 38%}
+@media(hover:hover){.dys-card:hover .dys-photo img{transform:scale(var(--img-zoom));filter:var(--img-hot)}}
+.dys-flag{position:absolute;top:1rem;left:1rem;background:var(--accent-d);color:#fff;font-family:var(--font-display);font-weight:700;
+  font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;padding:.5rem .85rem;border-radius:999px;box-shadow:0 8px 20px -8px rgba(0,0,0,.6)}
+.dys-body{position:relative;padding:0 clamp(1.4rem,2.6vw,2.2rem) clamp(1.6rem,2.8vw,2.3rem);flex:1}
+.dys-logo{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;width:156px;height:88px;
+  margin:-44px 0 var(--space-5);padding:14px 20px;background:#fff;border-radius:var(--r-md);box-shadow:0 12px 28px -12px rgba(16,24,32,.35),0 0 0 1px var(--line)}
+.dys-logo img{display:block;max-width:100%;max-height:100%;width:auto;height:auto}
+.dys-body h3{font-size:var(--text-h3);margin-bottom:var(--space-4)}
+.dys-list{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
+.dys-list li{position:relative;padding-left:1.85rem;color:var(--ink-soft);font-size:var(--text-base);line-height:1.45}
+.dys-list li::before{content:"";position:absolute;left:0;top:.2em;width:1.15rem;height:1.15rem;border-radius:50%;
+  background:var(--accent-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23226093' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/68% no-repeat}
+.dys-pros{list-style:none;margin:clamp(2.2rem,4vw,3.2rem) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);
+  border-top:1px solid rgba(255,255,255,.16)}
+.dys-pros li{display:flex;flex-direction:column;gap:.35rem;padding:1.5rem 1.6rem 0 0}
+.dys-pros li+li{padding-left:1.6rem;border-left:1px solid rgba(255,255,255,.16)}
+.dys-pros b{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:#fff}
+.dys-pros span{color:rgba(255,255,255,.74);font-size:var(--text-sm);line-height:1.5}
+.dys-cta{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.8rem;margin-top:clamp(2.2rem,4vw,3rem)}
+.dys-cta .btn-accent{color:#fff}
+.dys-tel{font-family:var(--font-display);font-weight:700;font-size:clamp(1.25rem,1rem + 1vw,1.65rem);color:#fff;
+  text-decoration:none;font-variant-numeric:tabular-nums;white-space:nowrap;transition:color .4s}
+.dys-tel:hover{color:#9DC0E0}
+@media(max-width:820px){
+  .dys-grid{grid-template-columns:1fr}
+  .dys-pros{grid-template-columns:1fr}
+  .dys-pros li,.dys-pros li+li{padding:1.15rem 0;border-left:0;border-bottom:1px solid rgba(255,255,255,.12)}
+  .dys-logo{width:136px;height:78px;margin-top:-39px}
+}
+
+/* 4) marki: siatka zamiast drobnych etykiet, ARDEX i wedi wyróżnione */
+.auto-marki .marki-list.marki-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(.6rem,1.4vw,.9rem);
+  max-width:1080px;margin:var(--space-7) auto 0}
+.auto-marki .marki-list.marki-grid li{grid-column:span 1;display:flex;flex-direction:column;align-items:flex-start;gap:.3rem;
+  padding:1.1rem 1.15rem 1.2rem;background:#fff;border:1px solid var(--line);border-radius:var(--r-md);
+  font-family:var(--font-body);font-weight:400;text-transform:none;letter-spacing:0;font-size:var(--text-sm);color:var(--muted);line-height:1.35}
+.marki-grid b{font-family:var(--font-display);font-weight:700;font-size:1.28rem;letter-spacing:-.01em;color:var(--ink)}
+.marki-grid i{font-style:normal;margin-top:auto;padding-top:.5rem;font-family:var(--font-display);font-size:.64rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.12em;color:var(--accent-d)}
+.auto-marki .marki-list.marki-grid li.mk-top{grid-column:span 3;background:var(--dark);border-color:var(--dark);color:rgba(255,255,255,.75);
+  padding:1.5rem 1.6rem;font-size:var(--text-base)}
+.marki-grid li.mk-top b{color:#fff;font-size:clamp(1.6rem,1.2rem + 1.2vw,2.1rem)}
+.marki-grid li.mk-top i{display:inline-flex;align-items:center;gap:.5rem;color:#9DC0E0;font-size:.7rem;padding-top:.8rem}
+.marki-grid li.mk-top i::before{content:"";width:8px;height:8px;border-radius:50%;background:#9DC0E0;box-shadow:0 0 0 4px rgba(157,192,224,.18)}
+@media(max-width:900px){
+  .auto-marki .marki-list.marki-grid{grid-template-columns:repeat(2,1fr)}
+  .auto-marki .marki-list.marki-grid li.mk-top{grid-column:span 2}
+}
+
+/* 5) oferta: znacznik przy wierszu ARDEX i wedi */
+.dist-chip{display:inline-flex;align-items:center;gap:.45rem;margin:0 0 var(--space-3);padding:.38rem .75rem;border-radius:999px;
+  background:var(--accent-soft);color:var(--accent-d);font-family:var(--font-display);font-size:.7rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase}
+.svc-row .num + .dist-chip{margin-left:.6rem}
+
+/* 6) stopka: dopisek o dystrybucji na każdej podstronie */
+.foot-brand .foot-dist{display:inline-flex;align-items:center;gap:.6rem;margin-top:var(--space-4);padding:.5rem .9rem;
+  border:1px solid rgba(255,255,255,.18);border-radius:999px;color:#fff;font-family:var(--font-display);font-weight:600;
+  font-size:.82rem;letter-spacing:.02em;max-width:none}
+.foot-dist .fd-dot{width:8px;height:8px;border-radius:50%;background:#9DC0E0;flex:none}
+
+/* 7) galeria masonry na głównej: podpisy zawsze czytelne */
+.gallery-masonry .m-tile .cap{font-weight:600;letter-spacing:.01em;background:linear-gradient(0deg,rgba(0,0,0,.66),transparent)}
+
+/* 8) „Zajrzyj do salonu": pionowe zdjęcia w pionowych kaflach (3:4 = proporcja oryginałów, nic nie ucina),
+      poziome pod spodem po dwa. Masonry zostawiał przy 6 zdjęciach pustą kolumnę. */
+.gal-salon{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4)}
+.gal-salon .m-tile{position:relative;margin:0;overflow:hidden;border-radius:var(--r-md);background:#0e141b}
+.gal-salon .gs-p{aspect-ratio:3/4}
+.gal-salon .gs-l{grid-column:span 2;aspect-ratio:16/9}
+.gal-salon .m-tile img{width:100%;height:100%;object-fit:cover;display:block}
+.gal-salon .m-tile .cap{position:absolute;left:0;right:0;bottom:0;padding:2.2rem var(--space-4) var(--space-4);color:#fff;font-weight:600;
+  font-size:var(--text-sm);background:linear-gradient(0deg,rgba(0,0,0,.68),transparent)}
+@media(max-width:820px){.gal-salon{grid-template-columns:repeat(2,1fr);gap:var(--space-3)}}
+
+/* 9) nagłówek sekcji dystrybutora: tytuł z lewej, opis z prawej (bez pustej połowy ekranu) */
+.dys-head{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(1.5rem,4vw,4rem);align-items:end;max-width:none}
+.dys-head h2{margin-bottom:0}
+.dys-head p{margin:0}
+@media(max-width:900px){.dys-head{grid-template-columns:1fr}}
+
+/* 10) nadtytuł w ciemnym pasie CTA: jaśniejszy błękit, bo akcent na granacie był ledwo czytelny */
+.cta .eyebrow{color:#9DC0E0}
+.cta .eyebrow::before{background:#9DC0E0}
+
+/* 11) tabliczki z logo w kartach: pełny znak ARDEX (z hasłem) na bieli, wedi biały na firmowym błękicie */
+.dys-logo{width:172px;height:100px;margin-top:-50px;padding:12px 18px}
+.dys-logo.dys-logo-wedi{background:#009ee0;box-shadow:0 12px 28px -12px rgba(0,80,130,.55)}
+.dys-logo.dys-logo-wedi img{max-width:118px}
+@media(max-width:820px){.dys-logo{width:150px;height:88px;margin-top:-44px}}
+
+/* 12) podpisy na zdjęciach galerii: cień pod literami + mocniejszy spód (jasne kadry ekspozycji) */
+.gallery-masonry .m-tile .cap,.gal-salon .m-tile .cap{text-shadow:0 1px 2px rgba(0,0,0,.7),0 2px 10px rgba(0,0,0,.45);
+  background:linear-gradient(0deg,rgba(0,0,0,.78) 0%,rgba(0,0,0,.45) 55%,transparent 100%);padding-top:2.6rem}
+
+/* 13) pieczęć dystrybutora nie może wypychać hero poza pierwszy ekran: zwarta i skalowana wysokością okna
+       (ta sama zasada co HERO-FIT: min(wartość, X svh), bez progów) */
+.hf-dist{padding-block:min(.32rem,.6svh)}
+.hfd-logos{padding-block:min(.2rem,.4svh)}
+.hfd-logos img{height:min(26px,3svh)}.hfd-logos img+img{height:min(13px,1.5svh)}
+.hf-dist + .hf-title{margin-top:min(var(--space-4),1.8svh)}
+@media(max-width:560px){.hfd-logos img{height:22px}.hfd-logos img+img{height:11px}}
+/* nagłówki podstron: cień pod nadtytułem i opisem (jasne kadry salonu), krótsze wiersze opisu */
+.pagehead .eyebrow,.pagehead p{text-shadow:0 1px 2px rgba(0,0,0,.6),0 2px 12px rgba(0,0,0,.35)}
+.pagehead p{max-width:min(100%,50ch)}
